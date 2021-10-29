@@ -1,0 +1,56 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+}
+
+.nav-bar {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  margin: 0;
+  height: 50px;
+  width: 100%;
+  background-color: green;
+  top: 0;
+  left: 0;
+  font-size: 35px;
+}
+
+.nav-bar a {
+  cursor: pointer;
+}
+
+.nav-bar a:hover,
+.nav-bar .drop-div:hover {
+  background-color: red;
+}
+
+.drop-down:hover .drop-contents {
+  display: block;
+}
+
+.drop-div {
+  cursor: pointer;
+  padding: 20px;
+}
+
+.drop-contents {
+  display: none;
+  font-size: 30px;
+  background-color: lightgray;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  position: absolute;
+  width: 130px;
+  right: 0;
+}
+
+.option:hover {
+  background-color: darkgray;
+}
