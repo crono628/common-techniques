@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Things</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -16,12 +16,17 @@
       <a href="">Click</a>
       <div class="drop-down">
         <div class="drop-div">Menu</div>
-        <div class="drop-contents">
+        <div class="drop-contents hide">
           <div class="option">Option 1</div>
           <div class="option">Option 2</div>
           <div class="option">Option 3</div>
         </div>
       </div>
+    </div>
+    <div class="carousel-container">
+      <div class="left-scroll" data-scroll="left"></div>
+      <div class="carousel"></div>
+      <div class="right-scroll" data-scroll="right"></div>
     </div>
   </body>
 </html>
