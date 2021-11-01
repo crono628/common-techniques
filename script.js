@@ -1,20 +1,28 @@
 const down = document.querySelector('.drop-down');
-const contents = document.querySelector('.drop-contents');
+const dropContents = document.querySelector('.drop-contents');
 const carousel = document.querySelector('.carousel');
+const carouselContent = document.querySelector('.carousel-content');
+const itemIndicatorContainer = document.querySelector(
+  '.item-indicator-container'
+);
 
 down.addEventListener('mouseover', () => {
-  contents.classList.remove('hide');
+  dropContents.classList.remove('hide');
 });
 
 down.addEventListener('mouseleave', () => {
-  contents.classList.add('hide');
+  dropContents.classList.add('hide');
 });
 
-contents.addEventListener('mouseleave', () => {
-  contents.classList.add('hide');
+dropContents.addEventListener('mouseleave', () => {
+  dropContents.classList.add('hide');
 });
 
-let carouselThings = [];
+let carouselArray = [0, 1, 2, 3, 4, 5, 6, 7];
+let carouselDisplay = carouselArray.map((item, index) => ({
+  item,
+  index,
+}));
 
 function dom(element, attributes = {}, text, parent) {
   const elem = document.createElement(element);
@@ -30,15 +38,33 @@ function dom(element, attributes = {}, text, parent) {
   return elem;
 }
 
-// carouselThings.forEach('thing' =>{
+function getIndex(elem) {
+  return carouselArray.indexOf(elem);
+}
 
-// })
+function render() {
+  clearElement(carouselContent);
+  let slide = dom(
+    'div',
+    { classList: 'slide' },
+    `${getIndex(thing)}`,
+    carouselContent
+  );
+  let dot = dom('span', { classList: 'dot' }, null, itemIndicatorContainer);
+}
 
-const slideItem1 = dom('div', { classList: 'slide' }, 'slide item 1', carousel);
-const slideItem2 = dom(
-  'div',
-  { classList: 'slide active' },
-  'slide item 2',
-  carousel
-);
-const slideItem3 = dom('div', { classList: 'slide' }, 'slide item 3', carousel);
+function clearElement(element) {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+}
+
+// carouselArray.forEach((thing) => {
+//   slide.dataset.index = getIndex(thing);
+//   dot.dataset.index = getIndex(thing);
+//   carouselArray.push(slide);
+// });
+
+let slide = document.querySelector('.slide');
+
+// get index of active class -1 > render 3 items
