@@ -86,11 +86,12 @@ body {
 
 .carousel-content {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  overflow-x: scroll;
 }
 
-.slide {
+.slides {
   min-width: 150px;
   height: 225px;
   border: solid yellow;
@@ -100,8 +101,9 @@ body {
 }
 
 .active {
-  width: 130px;
-  height: 205px;
+  min-width: 200px;
+  height: 275px;
+  justify-self: center;
 }
 
 .scroll {
